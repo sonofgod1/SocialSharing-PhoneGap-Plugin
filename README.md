@@ -31,12 +31,12 @@ This plugin allows you to use the native sharing window of your mobile device.
 SocialSharing is compatible with [Cordova Plugman](https://github.com/apache/cordova-plugman), compatible with [PhoneGap 3.0 CLI](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface_add_features), here's how it works with the CLI:
 
 ```
-$ phonegap local plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
+$ phonegap local plugin add https://github.com/sonofgod1/SocialSharing-PhoneGap-Plugin.git
 ```
 
 or with Cordova CLI, from npm:
 ```
-$ cordova plugin add cordova-plugin-x-socialsharing
+$ cordova plugin add https://github.com/sonofgod1/SocialSharing-PhoneGap-Plugin.git
 $ cordova prepare
 ```
 
