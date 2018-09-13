@@ -25,6 +25,57 @@ This plugin allows you to use the native sharing window of your mobile device.
 * Compatible with [Cordova Plugman](https://github.com/apache/cordova-plugman).
 * Officially supported by [PhoneGap Build](https://build.phonegap.com/plugins).
 
+## 3. Installation
+
+### Automatically (CLI / Plugman)
+SocialSharing is compatible with [Cordova Plugman](https://github.com/apache/cordova-plugman), compatible with [PhoneGap 3.0 CLI](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface_add_features), here's how it works with the CLI:
+
+```
+$ phonegap local plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
+```
+
+or with Cordova CLI, from npm:
+```
+$ cordova plugin add cordova-plugin-x-socialsharing
+$ cordova prepare
+```
+
+SocialSharing.js is brought in automatically. There is no need to change or add anything in your html.
+
+### Manually
+
+1\. Add the following xml to all the `config.xml` files you can find:
+```xml
+<!-- for iOS -->
+<feature name="SocialSharing">
+  <param name="ios-package" value="SocialSharing" />
+</feature>
+```
+```xml
+<!-- for Android (you will find one in res/xml) -->
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+</feature>
+```
+```xml
+<!-- for Windows Phone -->
+<feature name="SocialSharing">
+  <param name="wp-package" value="SocialSharing"/>
+</feature>
+```
+
+For sharing remote images (or other files) on Android, the file needs to be stored locally first, so add this permission to `AndroidManifest.xml`:
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+For iOS, you'll need to add the `Social.framework` and `MessageUI.framework` to your project. Click your project, Build Phases, Link Binary With Libraries, search for and add `Social.framework` and `MessageUI.framework`.
+
+2\. Grab a copy of SocialSharing.js, add it to your project and reference it in `index.html`:
+```html
+<script type="text/javascript" src="js/SocialSharing.js"></script>
+```
+
 3\. Download the source files for iOS and/or Android and copy them to your project.
 
 iOS: Copy `SocialSharing.h` and `SocialSharing.m` to `platforms/ios/<ProjectName>/Plugins`
@@ -46,7 +97,6 @@ or to use an older version, hosted at phonegap build:
 SocialSharing.js is brought in automatically. Make sure though you include a reference to cordova.js in your index.html's head:
 ```html
 <script type="text/javascript" src="cordova.js"></script>
-```
 
 ## 4. Usage on iOS and Android
 You can share text, a subject (in case the user selects the email application), (any type and location of) file (like an image), and a link.
